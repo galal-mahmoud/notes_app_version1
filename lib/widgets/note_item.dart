@@ -3,12 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({
-    super.key,
+    super.key, required this.onTap,
   });
-
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: onTap,
+        child: Container(
 
       margin: const EdgeInsetsDirectional.only(start: 16.0, end: 16.0, bottom: 8.0),
       height: 180.0,
@@ -62,6 +64,6 @@ class NoteItem extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

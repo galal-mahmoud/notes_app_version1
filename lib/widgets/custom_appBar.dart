@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'custom_icon.dart';
+
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.text,
-    required this.icon,
+    required this.icon, this.onTap,
   });
+  final VoidCallback? onTap;
   final String text;
   final IconData icon;
   @override
@@ -26,19 +29,9 @@ class CustomAppBar extends StatelessWidget {
             fontSize: 32.0,
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.05),
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          child: Center(
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(icon),
-            ),
-          ),
-        ),
+        CustomIcon(icon: icon, onTap: onTap,),
       ],
     ));
   }
 }
+
